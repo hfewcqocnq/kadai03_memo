@@ -14,8 +14,8 @@
   <p>嫌なことやモヤモヤをつぶやきたい時▶討伐</p>
   <main>
     <div class="input-area">
-      <input id="title" type="text" placeholder="タイトルを入力">
-      <textarea id="text" placeholder="本文を入力"></textarea>
+      <input id="title" type="text" size="61" placeholder="タイトルを入力">
+      <textarea id="text" rows="5" cols="70" placeholder="本文を入力"></textarea>
     </div>
     <div class="button-area">
       <button id="save">ひとりごつ</button>
@@ -24,6 +24,7 @@
     </div>
   </main>
   <ul id="list"></ul>
+  <div id="imghyouzi"></div>
   
 <script>
   const audio = new Audio('audio/hitorigotu.mp3');
@@ -40,6 +41,22 @@ const sakuzyo = new Audio('audio/tapasuta.mp3');
 document.getElementById('clear').addEventListener('click', () => {
   sakuzyo.play();
 });
+
+// ボタンをおしたら表示がしたい
+  $("#save").on("click",function(){
+    const output = document.getElementById('imghyouzi');
+    imghyouzi.innerHTML = "<img src ='img/hitorigotu.jpg'>";
+    });
+  
+    $("#touroku").on("click",function(){
+    const output = document.getElementById('imghyouzi');
+    imghyouzi.innerHTML = "<img src ='img/nanntokanare.jpg'>";
+    });
+
+    $("#clear").on("click",function(){
+      const element = document.getElementById('imghyouzi'); element.remove();
+    });
+
 
   $("#save").on("click",function(){
     const key = $("#title").val();
